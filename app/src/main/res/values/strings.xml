@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hush</string>
+
+    <string name="home_title">Hush</string>
+    <string name="settings_title">Settings</string>
+    <string name="settings_step_title">± Adjust step</string>
+    <string name="settings_step_value">± %1$d minutes</string>
+    <string name="settings_step_desc">Step for the ± buttons on home and the extend button in notifications, range 1–30 minutes</string>
+    <string name="settings_step_range">%1$d – %2$d</string>
+    <string name="action_back">Back</string>
+
+    <string name="action_open_settings">Settings</string>
+    <string name="hint_tap_ring">Tap the ring to adjust the duration</string>
+    <string name="label_reduce">Reduce %1$d minutes</string>
+    <string name="label_extend">Add %1$d minutes</string>
+    <string name="action_start">Start countdown</string>
+    <string name="action_resume_short">Resume countdown</string>
+    <string name="action_pause_short">Pause countdown</string>
+
+    <string name="channel_name">Countdown</string>
+    <string name="channel_desc">Shows countdown progress and quick controls</string>
+
+    <string name="notif_title">Hush countdown</string>
+    <string name="notif_paused_remaining">Paused · %1$s remaining</string>
+
+    <!-- Lock failure notification (spec 2026-10-07-lock-failure-notification §3.2/§3.3) -->
+    <string name="lock_failed_channel_name">Lock failure alerts</string>
+    <string name="lock_failed_channel_desc">Alerts when the countdown ends but the screen could not be locked</string>
+    <string name="notif_lock_failed_title">Couldn\'t lock the screen</string>
+    <string name="notif_lock_failed_msg">The countdown finished, but device admin was turned off, so the screen was not locked. Tap to re-enable.</string>
+
+    <string name="action_pause">Pause</string>
+    <string name="action_resume">Resume</string>
+    <string name="action_extend">+%1$d min</string>
+    <string name="action_cancel">Cancel</string>
+
+    <string name="capability_device_admin">Device admin</string>
+    <!-- Text on the system "Activate device admin" screen (EXTRA_ADD_EXPLANATION); wording must match device_admin.xml -->
+    <string name="device_admin_explanation">Hush needs device admin permission to lock the screen when the countdown ends. It can only lock the screen — it cannot read, change or delete any of your data.</string>
+
+    <string name="lock_not_ready_title">Lock screen not ready</string>
+    <!-- Single-entry wording: the only lock path is device admin (spec 2026-10-07-remove-accessibility-lock §3) -->
+    <string name="lock_not_ready_msg">When time is up, the screen needs to be locked automatically. Device admin is not enabled, so the countdown will not lock the screen. Please enable device admin.</string>
+    <string name="action_open_device_admin">Enable device admin</string>
+
+    <!-- Home screen status text (derived from HomeViewModel.uiState) -->
+    <string name="subtitle_idle">Countdown not started</string>
+    <string name="subtitle_to_lock">Locks when time is up</string>
+    <string name="subtitle_paused">Paused</string>
+    <string name="label_finish_at">Ends at %1$s</string>
+
+    <!-- Common actions / accessibility descriptions -->
+    <string name="action_confirm">OK</string>
+    <string name="desc_enter">Enter</string>
+
+    <!-- Duration sheet -->
+    <string name="duration_title">Duration</string>
+    <string name="duration_off">Off</string>
+    <string name="duration_custom">Custom</string>
+    <string name="duration_custom_value">Custom (%1$s)</string>
+
+    <!-- Settings screen -->
+    <string name="label_about">About</string>
+    <string name="settings_language">Language</string>
+    <string name="language_en">English</string>
+    <string name="language_zh">中文</string>
+    <string name="settings_permissions">Permissions</string>
+    <string name="settings_permissions_hint">Lock method · device admin required</string>
+    <string name="capability_notifications">Notifications</string>
+    <string name="capability_on">On</string>
+    <string name="capability_off">Tap to open settings</string>
+    <string name="settings_background">Background protection</string>
+    <string name="setting_recents_hide">Hide from recents</string>
+    <string name="setting_recents_hide_desc">Hides this app from the recent tasks screen</string>
+    <string name="settings_pause_media_title">Media playback</string>
+    <string name="setting_pause_media">Play</string>
+    <string name="setting_pause_media_desc">Stops audio and video playback</string>
+    <string name="setting_battery">Battery whitelist</string>
+    <string name="setting_battery_desc">Prevents the system from ending the countdown in the background</string>
+    <string name="setting_battery_on">Added</string>
+    <string name="setting_battery_off">Tap to set</string>
+    <string name="setting_exact">Exact alarm</string>
+    <string name="setting_exact_desc">Locks the screen on time more reliably</string>
+
+    <!-- About screen -->
+    <string name="about_author">Author</string>
+    <string name="about_source">Source</string>
+</resources>

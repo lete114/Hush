@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.SCHEDULE_EXACT_ALARM" />
+    <!-- No WAKE_LOCK: when an RTC_WAKEUP alarm fires, the system delivers the broadcast with a wakelock held until onReceive returns, so this synchronous lock needs no wakelock of its own (spec 2026-10-07 §2; do not add it back) -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_SPECIAL_USE" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+    <uses-permission android:name="android.permission.REQUEST_IGNORE_BATTERY_OPTIMIZATIONS" />
+    <!-- RECEIVE_BOOT_COMPLETED was removed along with TimerBootReceiver (spec 2026-10-05: the countdown is voided on reboot and never resumed at boot) -->
+
+    <application
+        android:name=".HushApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Hush">
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.Hush">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <receiver
+            android:name=".lock.HushAdminReceiver"
+            android:exported="true"
+            android:permission="android.permission.BIND_DEVICE_ADMIN">
+            <meta-data
+                android:name="android.app.device_admin"
+                android:resource="@xml/device_admin" />
+            <intent-filter>
+                <action android:name="android.app.action.DEVICE_ADMIN_ENABLED" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name=".service.CountdownService"
+            android:exported="false"
+            android:foregroundServiceType="specialUse">
+            <property
+                android:name="android.app.PROPERTY_SPECIAL_USE_FGS_SUBTYPE"
+                android:value="Countdown auto-lock: runs while your countdown is active, locks the screen when it ends, and provides pause/extend/cancel controls in the notification." />
+        </service>
+
+        <receiver
+            android:name=".receiver.TimerAlarmReceiver"
+            android:exported="false" />
+
+        <!-- "Alarms & reminders" grant broadcast (system protected broadcast, sent only when granted, never on revocation) -->
+        <receiver
+            android:name=".receiver.ExactAlarmPermissionReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.app.action.SCHEDULE_EXACT_ALARM_PERMISSION_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
+    </application>
+
+</manifest>

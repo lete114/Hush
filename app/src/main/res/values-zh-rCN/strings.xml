@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Hush</string>
+
+    <string name="home_title">Hush</string>
+    <string name="settings_title">设置</string>
+    <string name="settings_step_title">± 调整步长</string>
+    <string name="settings_step_value">± %1$d 分钟</string>
+    <string name="settings_step_desc">首页 ± 按钮与通知延长按钮的步长，范围 1–30 分钟</string>
+    <string name="settings_step_range">%1$d – %2$d</string>
+    <string name="action_back">返回</string>
+
+    <string name="action_open_settings">设置</string>
+    <string name="hint_tap_ring">点击圆环调整时长</string>
+    <string name="label_reduce">减 %1$d 分钟</string>
+    <string name="label_extend">加 %1$d 分钟</string>
+    <string name="action_start">开始倒计时</string>
+    <string name="action_resume_short">继续倒计时</string>
+    <string name="action_pause_short">暂停倒计时</string>
+
+    <string name="channel_name">倒计时</string>
+    <string name="channel_desc">显示倒计时进度与快捷控制</string>
+
+    <string name="notif_title">Hush 倒计时</string>
+    <string name="notif_paused_remaining">已暂停 · 剩余 %1$s</string>
+
+    <!-- Lock failure notification (spec 2026-10-07-lock-failure-notification §3.2/§3.3) -->
+    <string name="lock_failed_channel_name">锁屏失败提醒</string>
+    <string name="lock_failed_channel_desc">倒计时结束但未能锁屏时提醒</string>
+    <string name="notif_lock_failed_title">未能锁定屏幕</string>
+    <string name="notif_lock_failed_msg">倒计时已结束，但设备管理员已被关闭，屏幕未锁定。点按重新开启。</string>
+
+    <string name="action_pause">暂停</string>
+    <string name="action_resume">继续</string>
+    <string name="action_extend">+%1$d 分钟</string>
+    <string name="action_cancel">取消</string>
+
+    <string name="capability_device_admin">设备管理员</string>
+    <!-- Text on the system "Activate device admin" screen (EXTRA_ADD_EXPLANATION); wording must match device_admin.xml -->
+    <string name="device_admin_explanation">Hush 需要设备管理员权限，以便倒计时结束后锁定屏幕。它只能锁定屏幕，无法读取、修改或删除你的任何数据。</string>
+
+    <string name="lock_not_ready_title">锁屏未就绪</string>
+    <!-- Single-entry wording: the only lock path is device admin (spec 2026-10-07-remove-accessibility-lock §3) -->
+    <string name="lock_not_ready_msg">计时到点后需要自动锁定屏幕。设备管理员未开启，倒计时结束后将不会锁屏。请开启设备管理员。</string>
+    <string name="action_open_device_admin">去开设备管理员</string>
+
+    <!-- Home screen status text (derived from HomeViewModel.uiState) -->
+    <string name="subtitle_idle">尚未开启倒计时</string>
+    <string name="subtitle_to_lock">到点锁屏</string>
+    <string name="subtitle_paused">已暂停</string>
+    <string name="label_finish_at">%1$s 结束</string>
+
+    <!-- Common actions / accessibility descriptions -->
+    <string name="action_confirm">确定</string>
+    <string name="desc_enter">进入</string>
+
+    <!-- Duration sheet -->
+    <string name="duration_title">时长</string>
+    <string name="duration_off">不开启</string>
+    <string name="duration_custom">自定义</string>
+    <string name="duration_custom_value">自定义（%1$s）</string>
+
+    <!-- Settings screen -->
+    <string name="label_about">关于</string>
+    <string name="settings_language">语言</string>
+    <string name="language_en">English</string>
+    <string name="language_zh">中文</string>
+    <string name="settings_permissions">权限</string>
+    <string name="settings_permissions_hint">锁屏方式 · 需开启设备管理员</string>
+    <string name="capability_notifications">通知栏权限</string>
+    <string name="capability_on">已开启</string>
+    <string name="capability_off">点此前往设置</string>
+    <string name="settings_background">后台保护</string>
+    <string name="setting_recents_hide">后台隐藏</string>
+    <string name="setting_recents_hide_desc">在最近任务中隐藏本应用</string>
+    <string name="settings_pause_media_title">媒体播放</string>
+    <string name="setting_pause_media">播放</string>
+    <string name="setting_pause_media_desc">停止音频和视频播放</string>
+    <string name="setting_battery">电池白名单</string>
+    <string name="setting_battery_desc">防止系统在后台结束倒计时</string>
+    <string name="setting_battery_on">已加入</string>
+    <string name="setting_battery_off">点此设置</string>
+    <string name="setting_exact">精确闹钟</string>
+    <string name="setting_exact_desc">到点锁屏更准时</string>
+
+    <!-- About screen -->
+    <string name="about_author">作者</string>
+    <string name="about_source">源码</string>
+</resources>

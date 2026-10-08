@@ -1,0 +1,30 @@
+# In-repo JDK is no longer used (the build runs on a JDK 21 installation, see gradle.properties)
+# Kept in case someone drops a JDK into the project again
+/.jdk/
+
+# Gradle
+.gradle/
+build/
+local.properties
+
+# Android Studio / IntelliJ
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Signing keys
+*.jks
+*.keystore
+keystore.properties
+
+# System
+.DS_Store
+Thumbs.db
+
+# Brainstorming visualization companion files (local, temporary)
+.superpowers/
+
+# Local screenshots (for visual verification, not committed)
+tmp/

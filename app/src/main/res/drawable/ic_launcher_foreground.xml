@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Moon: late-night ambience -->
+    <path
+        android:fillColor="#FFB74D"
+        android:pathData="M62,30c0,-2 0,-4 -1,-6c-12,2 -21,12 -21,24c0,13 11,24 24,24c8,0 15,-4 19,-10c-2,1 -4,1 -6,1c-9,0 -15,-7 -15,-16C62,41 62,35 62,30z" />
+    <!-- Clock: countdown -->
+    <path
+        android:fillColor="#FFB74D"
+        android:pathData="M54,58m-20,0a20,20 0,1 1,40 0a20,20 0,1 1,-40 0" />
+    <path
+        android:fillColor="#1A1725"
+        android:pathData="M54,58m-15,0a15,15 0,1 0,30 0a15,15 0,1 0,-30 0" />
+    <path
+        android:fillColor="#FFB74D"
+        android:pathData="M52,46h4v13l9,5l-2,4l-11,-6z" />
+</vector>

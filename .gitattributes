@@ -1,0 +1,22 @@
+# Normalize all text files to Unix (LF) line endings; the repo stores LF only.
+* text=auto eol=lf
+
+# Windows batch scripts are checked out as CRLF (still stored as LF in the repo).
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Binary files: no line-ending conversion.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.webp binary
+*.pdf binary
+*.jar binary
+*.zip binary
+*.keystore binary
+*.jks binary
+*.so binary
+*.dll binary
+*.exe binary

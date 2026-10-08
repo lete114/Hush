@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Late-night warm palette, kept in sync with the Compose theme -->
+    <color name="night_ink">#12101A</color>
+    <color name="night_surface">#1A1725</color>
+    <color name="amber">#FFB74D</color>
+    <color name="amber_dim">#2A2735</color>
+    <color name="muted">#6B6880</color>
+    <color name="ic_launcher_background">#1A1725</color>
+</resources>
