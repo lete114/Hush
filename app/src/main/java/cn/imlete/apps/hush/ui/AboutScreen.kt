@@ -45,7 +45,6 @@ import cn.imlete.apps.hush.ui.theme.OnInk
 import cn.imlete.apps.hush.ui.theme.SmallSize
 import cn.imlete.apps.hush.ui.theme.Surface
 import cn.imlete.apps.hush.ui.theme.TitleSize
-import cn.imlete.apps.hush.ui.theme.Track
 import cn.imlete.apps.hush.ui.theme.nightWash
 
 /** Source repository URL: tapping the "Source" row opens the browser (the URL text is not shown, spec 2026-10-05-about-page revision). */
@@ -110,7 +109,6 @@ fun AboutScreen(onBack: () -> Unit) {
 
                 AboutCard {
                     InfoRow(label = stringResource(R.string.about_author), leadingIcon = R.drawable.ic_person, value = "Lete114")
-                    AboutDivider()
                     InfoRow(
                         label = stringResource(R.string.about_source),
                         leadingIcon = R.drawable.ic_code,
@@ -197,18 +195,6 @@ private fun InfoRow(
             )
         }
     }
-}
-
-/** Thin in-card divider (1dp Track color), same spec as the settings page's SettingsDivider. */
-@Composable
-private fun AboutDivider() {
-    Box(
-        Modifier
-            .fillMaxWidth()
-            .padding(vertical = 6.dp)
-            .height(1.dp)
-            .background(Track),
-    )
 }
 
 @Preview(showBackground = true, backgroundColor = 0xFF12101A, widthDp = 417, heightDp = 929)

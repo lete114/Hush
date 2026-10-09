@@ -92,51 +92,6 @@ fun SettingsScreen(
                 Spacer(Modifier.height(28.dp))
 
                 SettingsCard {
-                    Row(
-                        modifier = Modifier.fillMaxWidth().clickable(onClick = onOpenLanguage),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        IconChip(R.drawable.ic_language)
-                        Spacer(Modifier.width(10.dp))
-                        Text(
-                            stringResource(R.string.settings_language),
-                            color = OnInk,
-                            fontSize = BodySize,
-                            modifier = Modifier.weight(1f),
-                        )
-                        Text(
-                            text = stringResource(if (appLocale == AppLocale.TAG_ZH) R.string.language_zh else R.string.language_en),
-                            color = Muted,
-                            fontSize = SmallSize,
-                        )
-                        Spacer(Modifier.width(8.dp))
-                        Icon(
-                            painter = painterResource(R.drawable.ic_arrow_forward),
-                            contentDescription = stringResource(R.string.desc_enter),
-                            tint = Muted,
-                            modifier = Modifier.size(24.dp),
-                        )
-                    }
-                    SettingsDivider()
-                    Row(
-                        modifier = Modifier.fillMaxWidth().clickable(onClick = onOpenAbout),
-                        verticalAlignment = Alignment.CenterVertically,
-                    ) {
-                        IconChip(R.drawable.ic_info)
-                        Spacer(Modifier.width(10.dp))
-                        Text(stringResource(R.string.label_about), color = OnInk, fontSize = BodySize, modifier = Modifier.weight(1f))
-                        Icon(
-                            painter = painterResource(R.drawable.ic_arrow_forward),
-                            contentDescription = stringResource(R.string.desc_enter),
-                            tint = Muted,
-                            modifier = Modifier.size(24.dp),
-                        )
-                    }
-                }
-
-                Spacer(Modifier.height(16.dp))
-
-                SettingsCard {
                     CardTitle(stringResource(R.string.settings_permissions))
                     CardGroupLabel(stringResource(R.string.settings_permissions_hint))
                     CapabilityRow(
@@ -145,7 +100,6 @@ fun SettingsScreen(
                         icon = R.drawable.ic_shield,
                         onClick = onOpenDeviceAdmin,
                     )
-                    SettingsDivider()
                     CapabilityRow(
                         label = stringResource(R.string.capability_notifications),
                         granted = notifications,
@@ -158,7 +112,7 @@ fun SettingsScreen(
                 SettingsCard {
                     CardTitle(stringResource(R.string.settings_background))
                     Row(
-                        modifier = Modifier.fillMaxWidth().padding(top = 10.dp),
+                        modifier = Modifier.fillMaxWidth().padding(vertical = 10.dp),
                         verticalAlignment = Alignment.CenterVertically,
                     ) {
                         IconChip(R.drawable.ic_visibility_off)
@@ -176,7 +130,6 @@ fun SettingsScreen(
                         HushSwitch(checked = hideFromRecents, onClick = { onToggleHideRecents(!hideFromRecents) })
                     }
 
-                    SettingsDivider()
                     ProtectionRow(
                         icon = R.drawable.ic_battery,
                         label = stringResource(R.string.setting_battery),
@@ -188,7 +141,6 @@ fun SettingsScreen(
                     )
 
                     if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
-                        SettingsDivider()
                         ProtectionRow(
                             icon = R.drawable.ic_schedule,
                             label = stringResource(R.string.setting_exact),
@@ -268,6 +220,51 @@ fun SettingsScreen(
                     )
                 }
 
+                Spacer(Modifier.height(16.dp))
+
+                SettingsCard {
+                    CardTitle(stringResource(R.string.settings_general_title))
+                    Row(
+                        modifier = Modifier.fillMaxWidth().clickable(onClick = onOpenLanguage).padding(vertical = 10.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        IconChip(R.drawable.ic_language)
+                        Spacer(Modifier.width(10.dp))
+                        Text(
+                            stringResource(R.string.settings_language),
+                            color = OnInk,
+                            fontSize = BodySize,
+                            modifier = Modifier.weight(1f),
+                        )
+                        Text(
+                            text = stringResource(if (appLocale == AppLocale.TAG_ZH) R.string.language_zh else R.string.language_en),
+                            color = Muted,
+                            fontSize = SmallSize,
+                        )
+                        Spacer(Modifier.width(8.dp))
+                        Icon(
+                            painter = painterResource(R.drawable.ic_arrow_forward),
+                            contentDescription = stringResource(R.string.desc_enter),
+                            tint = Muted,
+                            modifier = Modifier.size(24.dp),
+                        )
+                    }
+                    Row(
+                        modifier = Modifier.fillMaxWidth().clickable(onClick = onOpenAbout).padding(vertical = 10.dp),
+                        verticalAlignment = Alignment.CenterVertically,
+                    ) {
+                        IconChip(R.drawable.ic_info)
+                        Spacer(Modifier.width(10.dp))
+                        Text(stringResource(R.string.label_about), color = OnInk, fontSize = BodySize, modifier = Modifier.weight(1f))
+                        Icon(
+                            painter = painterResource(R.drawable.ic_arrow_forward),
+                            contentDescription = stringResource(R.string.desc_enter),
+                            tint = Muted,
+                            modifier = Modifier.size(24.dp),
+                        )
+                    }
+                }
+
                 Spacer(Modifier.height(32.dp))
             }
         }
@@ -326,18 +323,6 @@ private fun CardGroupLabel(text: String) {
         color = Muted,
         fontSize = SmallSize,
         modifier = Modifier.padding(bottom = 2.dp),
-    )
-}
-
-/** Thin in-card divider (1dp Track color). */
-@Composable
-private fun SettingsDivider() {
-    Box(
-        Modifier
-            .fillMaxWidth()
-            .padding(vertical = 6.dp)
-            .height(1.dp)
-            .background(Track),
     )
 }
 

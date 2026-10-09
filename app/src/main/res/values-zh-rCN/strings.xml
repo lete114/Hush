@@ -61,6 +61,7 @@
     <string name="duration_custom_value">自定义（%1$s）</string>
 
     <!-- Settings screen -->
+    <string name="settings_general_title">通用</string>
     <string name="label_about">关于</string>
     <string name="settings_language">语言</string>
     <string name="language_en">English</string>
