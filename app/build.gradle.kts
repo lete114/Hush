@@ -18,10 +18,24 @@ android {
         versionName = "1.0"
     }
 
+    signingConfigs {
+        create("release") {
+            storeFile = file(System.getenv("HUSH_KEYSTORE_FILE") ?: "unset.jks")
+            storePassword = System.getenv("HUSH_KEYSTORE_PASSWORD")
+            keyAlias = System.getenv("HUSH_KEY_ALIAS")
+            keyPassword = System.getenv("HUSH_KEY_PASSWORD")
+        }
+    }
+
     buildTypes {
         release {
             isMinifyEnabled = true
             isShrinkResources = true
+            signingConfig = if (System.getenv("HUSH_KEYSTORE_FILE") != null) {
+                signingConfigs.getByName("release")
+            } else {
+                null
+            }
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro",
