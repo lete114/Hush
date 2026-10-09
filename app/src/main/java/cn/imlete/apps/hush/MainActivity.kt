@@ -6,6 +6,7 @@ import android.app.ActivityManager
 import android.app.admin.DevicePolicyManager
 import android.content.Context
 import android.content.Intent
+import android.graphics.Color
 import android.net.Uri
 import android.os.Build
 import android.os.Bundle
@@ -16,6 +17,7 @@ import androidx.activity.compose.BackHandler
 import androidx.activity.compose.rememberLauncherForActivityResult
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.SystemBarStyle
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.animation.AnimatedContent
 import androidx.compose.animation.fadeIn
@@ -74,7 +76,13 @@ class MainActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        enableEdgeToEdge()
+        // The app is always dark (HushTheme ignores system dark mode), so the default auto() style —
+        // which follows the system theme and turns the icons black in light system mode — would be
+        // unreadable on the Ink background. Force light icons regardless of the system theme.
+        enableEdgeToEdge(
+            statusBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
+            navigationBarStyle = SystemBarStyle.dark(Color.TRANSPARENT),
+        )
         applyRecentsVisibility(this) // D: hide the recents card according to the setting (spec 2026-10-05-recents-hide)
         setContent {
             HushTheme {
